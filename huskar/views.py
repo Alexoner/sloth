@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view
 #  from huskarAdmin.models import Snippet
 #  from huskarAdmin.serializers import SnippetSerializer
 
@@ -79,7 +80,9 @@ def libraries(request,pk=None):
         if pk:
             with open('data/query_one.json?id=%s.json' % (pk)) as f:
                 data = f.read()
-                return HttpResponse(data)
+                kwargs = {}
+                kwargs['content_type'] = 'application/json'
+                return HttpResponse(data, **kwargs)
         else:
-            return HttpResponse('This is the list of libraries')
+            return HttpResponse('This is the list of libraries, query params: %s' % request.GET.get('a'))
 
