@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'rest_framework', # django restful framework
+    'djcelery', # django-celery
+    'job',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -130,3 +132,20 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+
+# Celery settings
+
+# CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+BROKER_URL = 'redis://@127.0.0.1:6379/0'
+
+
+#: Only add pickle to this list if your broker is secured
+#: from unwanted access (see userguide/security.html)
+# CELERY_ACCEPT_CONTENT = ['json']
+
+# database backend
+# app.conf.update(
+    # CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+# )
