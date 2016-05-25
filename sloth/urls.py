@@ -1,4 +1,4 @@
-"""huskar URL Configuration
+"""sloth URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
-from huskar import views
+from sloth import views
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -41,8 +41,8 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^huskar/$', views.snippet_list),
-    url(r'^huskar/(?P<pk>[0-9]+)/$', views.snippet_detail),
+    url(r'^sloth/$', views.snippet_list),
+    url(r'^sloth/(?P<pk>[0-9]+)/$', views.snippet_detail),
     # add your apis here
     # libraries
     url(r'^libraries/$', views.libraries),
