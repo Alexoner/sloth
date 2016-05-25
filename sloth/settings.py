@@ -141,19 +141,24 @@ from celery.schedules import crontab
 
 # database backend
 # CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+# redis result backend
+# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+# django database backend
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 # broker(transport) url
 BROKER_URL = 'redis://@127.0.0.1:6379/0'
 
 
 #: Only add pickle to this list if your broker is secured
-#: from unwanted access (see userguide/security.html)
-# CELERY_ACCEPT_CONTENT = ['json']
+# for security purposes, disable unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
 #
 # Celery PERIODIC task configuration
 #
-#CELERY_TIMEZONE = 'UTC'
+CELERY_TIMEZONE = 'China/Shanghai'
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
 CELERYBEAT_SCHEDULE = {

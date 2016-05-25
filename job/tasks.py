@@ -32,3 +32,27 @@ def email_sending_method():
     print('sending email')
     send_mail('subject', 'body', 'from_me@admin.com' ,
               ['to_him@gmail.com',], fail_silently=False)
+
+@shared_task
+def run_crawler(spider_name='general',
+                origin='https://github.com/Alexoner/web-crawlers.git',
+                seeds=None):
+    # TODO: initialize local env
+    # 1. mkdir
+    # 2. checkout out latest source code from origin
+    # 3. virtualenv && pip install -r requirements.txt
+
+    if not 'init env succeeded':
+        return {
+            'status_code': 500,
+            'msg': 'pip install is taking too long',
+        }
+
+    # TODO: run the spider worker
+    # laod seeds from db
+    # pid lock
+
+    # TODO: dispatch the crawler workers
+    # through scrapyd daemon API or
+    # with batch shell scripts
+    pass
