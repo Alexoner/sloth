@@ -3,7 +3,8 @@ from datetime import timedelta
 
 from celery import shared_task
 from celery.schedules import crontab
-
+from celery.task.base import periodic_task
+from django.core.mail import send_mail
 
 @shared_task
 def add(x, y):
@@ -25,21 +26,9 @@ def helloworld():
     print('hello world')
     return 'hello world'
 
-CELERYBEAT_SCHEDULE = {
-    'add-every-30-seconds': {
-        'task': 'tasks.add',
-        'schedule': timedelta(seconds=30),
-        'args': (16, 16)
-    },
-}
-
-#CELERY_TIMEZONE = 'UTC'
-
-CELERYBEAT_SCHEDULE = {
-    # Executes every Monday morning at 7:30 A.M
-    'add-every-monday-morning': {
-        'task': 'tasks.add',
-        'schedule': crontab(hour='*', minute='*', day_of_week='*'),
-        'args': (16, 16),
-    },
-}
+@shared_task
+@periodic_task(run_every=timedelta(days=10))
+def email_sending_method():
+    print('sending email')
+    send_mail('subject', 'body', 'from_me@admin.com' ,
+              ['to_him@gmail.com',], fail_silently=False)

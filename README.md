@@ -16,7 +16,11 @@ EOF
 
 ### start a worker
 ```shell
-python manage.py celery worker --loglevel=info
+python manage.py celery -A sloth worker --loglevel=info
+```
+or
+```shell
+celery -A sloth worker --loglevel=info
 ```
 
 ### run tasks in shell

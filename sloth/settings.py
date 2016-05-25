@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+from __future__ import absolute_import
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -135,9 +136,13 @@ REST_FRAMEWORK = {
 
 
 # Celery settings
+from datetime import timedelta
+from celery.schedules import crontab
 
+# database backend
 # CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+# broker(transport) url
 BROKER_URL = 'redis://@127.0.0.1:6379/0'
 
 
@@ -145,7 +150,22 @@ BROKER_URL = 'redis://@127.0.0.1:6379/0'
 #: from unwanted access (see userguide/security.html)
 # CELERY_ACCEPT_CONTENT = ['json']
 
-# database backend
-# app.conf.update(
-    # CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
-# )
+#
+# Celery PERIODIC task configuration
+#
+#CELERY_TIMEZONE = 'UTC'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+CELERYBEAT_SCHEDULE = {
+    'add-every-30-seconds': {
+        'task': 'job.tasks.add',
+        'schedule': timedelta(seconds=30),
+        'args': (16, 16)
+    },
+    # Executes every Monday morning at 7:30 A.M
+    'add-every-monday-morning': {
+        'task': 'job.tasks.add',
+        'schedule': crontab(hour='*', minute='*', day_of_week='*'),
+        'args': (16, 16),
+    },
+}
