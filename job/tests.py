@@ -1,5 +1,7 @@
 from django.test import TestCase
+
 from job.models import Proxy
+from job.tasks import crawl_proxies
 
 # Create your tests here.
 
@@ -8,13 +10,16 @@ class TaskTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_can_crawl_proxies(self):
-        """ the task to crawl proxies functions well when scheduled by celery """
-        print("can crawl proxies?")
-        from job.tasks import crawl_proxies
-        result = crawl_proxies.delay()
+    # def test_can_crawl_proxies(self):
+        # """ the task to crawl proxies functions well when scheduled by celery """
+        # assert  crawl_proxies(limit=3)
+
+    def test_can_schedule_crawl_proxies(self):
+        print("can schedule crawl proxies?")
+        result = crawl_proxies.delay(limit=5)
+        # NOTE: call get() first to wait for complete
+        assert result.get()
         assert result.successful()
-        assert result.get() is True
 
     def test_foo(self):
         assert True
