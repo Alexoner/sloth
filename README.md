@@ -35,5 +35,10 @@ $ python manage.py shell
 >>> add.delay(2, 2)
 ```
 
+### run tests
+```shell
+./manage.py test
+```
+
 ## data demonstration
 TODO

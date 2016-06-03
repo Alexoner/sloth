@@ -6,20 +6,11 @@ from celery.schedules import crontab
 from celery.task.base import periodic_task
 from django.core.mail import send_mail
 
+from job.models import Proxy
+
 @shared_task
 def add(x, y):
     return x + y
-
-
-@shared_task
-def mul(x, y):
-    return x * y
-
-
-@shared_task
-def xsum(numbers):
-    return sum(numbers)
-
 
 @shared_task
 def helloworld():
@@ -30,8 +21,9 @@ def helloworld():
 @periodic_task(run_every=timedelta(days=10))
 def email_sending_method():
     print('sending email')
-    send_mail('subject', 'body', 'from_me@admin.com' ,
-              ['to_him@gmail.com',], fail_silently=False)
+    send_mail('subject', 'body', 'from_me@admin.com',
+              ['to_him@gmail.com', ], fail_silently=False)
+    return True
 
 @shared_task
 def run_crawler(spider_name='general',
@@ -56,3 +48,41 @@ def run_crawler(spider_name='general',
     # through scrapyd daemon API or
     # with batch shell scripts
     pass
+
+
+import asyncio
+from proxybroker import Broker
+
+@shared_task
+def crawl_proxies(limit=1000, countries=['CN']):
+
+    async def save(proxies_crawled):
+        """Save proxies to a file."""
+        while True:
+            proxy_crawled = await proxies_crawled.get()
+            if proxy_crawled is None:
+                break
+            proto = 'https' if 'HTTPS' in proxy_crawled.types else 'http'
+            row = Proxy(
+                url='%s://%s:%d\n' %
+                (proto, proxy_crawled.host, proxy_crawled.port))
+            row.save()
+
+    def main():
+        proxies = asyncio.Queue()
+        broker = Broker(proxies)
+        tasks = asyncio.gather(broker.find(types=['HTTP', 'HTTPS'], countries=countries, limit=limit),
+                               save(proxies))
+        loop = asyncio.get_event_loop()
+        try:
+            # FIXME: raises OSError: [Errno 9] Bad file descriptor
+            loop.run_until_complete(tasks)
+        except OSError as e:
+            print('tasked failed', 'queue:', proxies, 'error:', e)
+            return False
+        finally:
+            loop.close()
+
+        return True
+
+    return main()
