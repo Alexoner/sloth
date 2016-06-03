@@ -22,12 +22,12 @@ from sloth import views
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
+        model  = User
         fields = ('url', 'username', 'email', 'is_staff')
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset         = User.objects.all()
     serializer_class = UserSerializer
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -43,9 +43,9 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^sloth/$', views.snippet_list),
     url(r'^sloth/(?P<pk>[0-9]+)/$', views.snippet_detail),
+    url(r'^job/', include('job.urls')),
     # add your apis here
     # libraries
     url(r'^libraries/$', views.libraries),
     url(r'^libraries/(?P<pk>[0-9]+)/$', views.libraries),
-    url(r'^job/', include('job.urls')),
 ]

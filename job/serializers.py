@@ -19,13 +19,13 @@ class ProxySerializer(serializers.Serializer):
         """
         Update and return an existing `Snippet` instance, given the validated data.
         """
-        instance.url = validated_data.get('url', instance.title)
-        instance.source = validated_data.get('source', instance.source)
+        instance.url     = validated_data.get('url', instance.title)
+        instance.source  = validated_data.get('source', instance.source)
         instance.country = validated_data.get('country', instance.country)
-        instance.type= validated_data.get('type', instance.type)
+        instance.type    = validated_data.get('type', instance.type)
         instance.save()
         return instance
 
     class Meta:
         model = Proxy
-        fields = ('id', 'url', 'country')
+        fields = ('id', 'url', 'country', 'type')
