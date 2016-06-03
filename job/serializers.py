@@ -4,7 +4,9 @@ from job.models import Proxy
 
 class ProxySerializer(serializers.Serializer):
     pk      = serializers.IntegerField(read_only=True)
-    url     = serializers.CharField(required=False, allow_blank=True, max_length=100)
+    owner   = serializers.ReadOnlyField(source='owner.username')
+    created = serializers.CharField(required=False)
+    address = serializers.CharField(required=False, allow_blank=True, max_length=100)
     source  = serializers.CharField(max_length=100, allow_blank=True)
     country = serializers.CharField(max_length=16, allow_blank=True)
     type    = serializers.CharField(max_length=16, allow_blank=True)
@@ -19,7 +21,7 @@ class ProxySerializer(serializers.Serializer):
         """
         Update and return an existing `Snippet` instance, given the validated data.
         """
-        instance.url     = validated_data.get('url', instance.title)
+        instance.address = validated_data.get('address', instance.address)
         instance.source  = validated_data.get('source', instance.source)
         instance.country = validated_data.get('country', instance.country)
         instance.type    = validated_data.get('type', instance.type)
@@ -28,4 +30,4 @@ class ProxySerializer(serializers.Serializer):
 
     class Meta:
         model = Proxy
-        fields = ('id', 'url', 'country', 'type')
+        fields = ('id', 'owner', 'address', 'country', 'type', 'created')

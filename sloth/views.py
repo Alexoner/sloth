@@ -1,10 +1,29 @@
 import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 
+from sloth.serializers import UserSerializer
+
+
+# USER: ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset         = User.objects.all()
+    serializer_class = UserSerializer
+
+# class UserList(generics.ListAPIView):
+    # queryset = User.objects.all()
+    # serializer_class = UserSerializer
+
+# class UserDetail(generics.RetrieveAPIView):
+    # queryset = User.objects.all()
+    # serializer_class = UserSerializer
+
+##########################################################
 
 class JSONResponse(HttpResponse):
     """

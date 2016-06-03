@@ -27,6 +27,9 @@ class ProxyList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 class ProxyDetail(APIView):
     """
     Retrieve, update or delete a code proxy.
