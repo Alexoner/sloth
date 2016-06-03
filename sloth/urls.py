@@ -47,4 +47,5 @@ urlpatterns = [
     # libraries
     url(r'^libraries/$', views.libraries),
     url(r'^libraries/(?P<pk>[0-9]+)/$', views.libraries),
+    url(r'^job/', include('job.urls')),
 ]
