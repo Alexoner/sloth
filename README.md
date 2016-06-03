@@ -23,6 +23,11 @@ or
 celery -A sloth worker --loglevel=info
 ```
 
+### start a beat service to schedule periodic tasks
+```shell
+celery -A sloth beat -l info
+```
+
 ### run tasks in shell
 ```shell
 $ python manage.py shell
@@ -31,3 +36,4 @@ $ python manage.py shell
 ```
 
 ## data demonstration
+TODO
