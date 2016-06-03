@@ -80,9 +80,9 @@ def crawl_proxies(limit=1000, countries=['CN']):
         tasks = asyncio.gather(broker.find(types=['HTTP', 'HTTPS'], countries=countries, limit=limit),
                                save(proxies))
 
-        loop = asyncio.new_event_loop()
+        loop = asyncio.get_event_loop()
         try:
-            # FIXME: raises OSError: [Errno 9] Bad file descriptor
+            # FIXME: raises OSError: [Errno 9] Bad file descriptor on OSX, but works well on Linux
             loop.run_until_complete(tasks)
         except OSError as e:
             print('tasked failed', 'loop:', loop, 'error:', e)
