@@ -3,8 +3,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    url(r'^proxies/$', views.ProxyList.as_view()),
-    url(r'^proxies/(?P<pk>[0-9]+)/$', views.ProxyDetail.as_view()),
+    url(r'^$', views.GitHubHookView.as_view(), name='github-hook'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+

@@ -40,7 +40,10 @@ RUN git clone https://github.com/Alexoner/web-crawlers.git $HOME/src/scrapyprj &
     cd $HOME/src/scrapyprj && pip install -r requirements.txt && cd ..
 RUN git clone https://github.com/Alexoner/sloth.git $HOME/src/sloth && \
     cd $HOME/src/sloth && pip install -r requirements.txt && cd ..
-WORKDIR $HOME/src/
-EXPOSE 8000 8000
 
 RUN rm -rf /var/lib/apt/lists/*
+# create unprivileged user
+RUN adduser --disabled-password --gecos '' admin
+
+WORKDIR $HOME/src/
+EXPOSE 8000 8000

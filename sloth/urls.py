@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^sloth/$', views.snippet_list),
     url(r'^sloth/(?P<pk>[0-9]+)/$', views.snippet_detail),
     url(r'^job/', include('sloth_job.urls')),
+    url(r'^hook/', include('sloth_hook.urls')),
     # add your apis here
     # libraries
     url(r'^libraries/$', views.libraries),
