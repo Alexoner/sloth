@@ -159,18 +159,18 @@ CELERY_RESULT_SERIALIZER = 'json'
 #
 # Celery PERIODIC task configuration
 #
-CELERY_TIMEZONE = 'China/Shanghai'
+CELERY_TIMEZONE = 'Asia/Shanghai'
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
 CELERYBEAT_SCHEDULE = {
     'add-every-30-seconds': {
-        'task': 'job.tasks.add',
+        'task': 'sloth_job.tasks.add',
         'schedule': timedelta(seconds=30),
         'args': (16, 16)
     },
     # Executes every Monday morning at 7:30 A.M
     'add-every-monday-morning': {
-        'task': 'job.tasks.add',
+        'task': 'sloth_job.tasks.add',
         'schedule': crontab(hour='*', minute='*', day_of_week='*'),
         'args': (16, 16),
     },
