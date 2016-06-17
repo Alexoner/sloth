@@ -40,5 +40,25 @@ $ python manage.py shell
 ./manage.py test
 ```
 
+### running in docker
+if you have a container that with something running on its port 8000, you can run
+```shell
+wget http://container_ip:8000
+```
+To get the container´s ip address, run the 2 commands:
+```shell
+docker ps
+
+docker inspect container_name | grep IPAddress
+```
+Internally, Docker shells out to call iptables when you run an image, so maybe some variation on this will work.
+
+to expose the container's port 8000 on your localhosts port 8001
+```shell
+ iptables -t nat -A  DOCKER -p tcp --dport 8000 -j DNAT --to-destination 192.168.42.47:8000
+```
+
+
 ## data demonstration
 TODO
+

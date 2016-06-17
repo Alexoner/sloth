@@ -1,7 +1,7 @@
 from django.test import TestCase
 
-from job.models import Proxy
-from job.tasks import crawl_proxies
+from .models import Proxy
+from .tasks import crawl_proxies
 
 # Create your tests here.
 

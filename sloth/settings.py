@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # django restful framework
     'djcelery', # django-celery
-    'job',
+    'sloth_job',
 ]
 
 MIDDLEWARE_CLASSES = [

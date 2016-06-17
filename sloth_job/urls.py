@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
-from job import views
+from sloth_job import views
 
 urlpatterns = [
     url(r'^proxies/$', views.ProxyList.as_view()),

@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
-from sloth import views
-from sloth.views import UserViewSet
+from . import views
+from .views import UserViewSet
 
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^sloth/$', views.snippet_list),
     url(r'^sloth/(?P<pk>[0-9]+)/$', views.snippet_detail),
-    url(r'^job/', include('job.urls')),
+    url(r'^job/', include('sloth_job.urls')),
     # add your apis here
     # libraries
     url(r'^libraries/$', views.libraries),

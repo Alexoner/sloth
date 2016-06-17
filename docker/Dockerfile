@@ -33,7 +33,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
         mysql-client \
         redis-server
 
-RUN easy_install pip==8.1.2
+RUN easy_install pip==8.1.2 setuptools
 # install scrapyprj
 RUN mkdir $HOME/src/
 RUN git clone https://github.com/Alexoner/web-crawlers.git $HOME/src/scrapyprj && \
@@ -41,5 +41,6 @@ RUN git clone https://github.com/Alexoner/web-crawlers.git $HOME/src/scrapyprj &
 RUN git clone https://github.com/Alexoner/sloth.git $HOME/src/sloth && \
     cd $HOME/src/sloth && pip install -r requirements.txt && cd ..
 WORKDIR $HOME/src/
+EXPOSE 8000 8000
 
 RUN rm -rf /var/lib/apt/lists/*

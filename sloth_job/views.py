@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.http import Http404
-from job.models import Proxy
-from job.serializers import ProxySerializer
+from .models import Proxy
+from .serializers import ProxySerializer
 
 
 # Create your views here.

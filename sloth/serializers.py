@@ -1,6 +1,7 @@
+from __future__ import absolute_import
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from job.models import Proxy
+from sloth_job.models import Proxy
 
 # Serializers define the API representation.
 class UserSerializer(serializers.ModelSerializer):

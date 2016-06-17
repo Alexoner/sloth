@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from job.models import Proxy
+from .models import Proxy
 
 
 class ProxySerializer(serializers.Serializer):
