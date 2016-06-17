@@ -41,11 +41,11 @@ class GitHubHookView(APIView):
         return cls.config
 
     def post(self, request):
-        event = request.META['X-GitHub-Event']
-        if event == 'ping':
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        if event != 'push':
-            return Response(status=status.HTTP_304_NOT_MODIFIED)
+        # event = request.META.get('X-GitHub-Event')
+        # if event == 'ping':
+            # return Response(status=status.HTTP_204_NO_CONTENT)
+        # if event != 'push':
+            # return Response(status=status.HTTP_304_NOT_MODIFIED)
 
         url = self.parse_request(request)
         paths = self.getMatchingPaths(url)
