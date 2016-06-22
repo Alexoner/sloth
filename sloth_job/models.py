@@ -18,7 +18,5 @@ class Proxy(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Use the `pygments` library to create a highlighted HTML
-        representation of the code snippet.
         """
         super(Proxy, self).save(*args, **kwargs)

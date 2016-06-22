@@ -8,7 +8,7 @@ from celery.schedules import crontab
 from celery.task.base import periodic_task
 from scrapyd_api import ScrapydAPI
 
-DEFAULT_URL = 'http://localhost:6800/'
+DEFAULT_URL = 'http://127.0.0.1:6800/'
 
 @shared_task
 def start_dbworker():

@@ -41,7 +41,11 @@ $ python manage.py shell
 ```
 
 ### running in docker
-if you have a container that with something running on its port 8000, you can run
+if you have a container that with something running on its port 8000
+```shell
+docker run -td -P -v /root/work:/home/admin/work -w /home/admin sloth:latest
+```
+you can run
 ```shell
 wget http://container_ip:8000
 ```

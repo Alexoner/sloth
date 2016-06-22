@@ -13,13 +13,13 @@ class ProxySerializer(serializers.Serializer):
 
     def create(self, validated_data):
         """
-        Create and return a new `Snippet` instance, given the validated data.
+        Create and return a new `Proxy` instance, given the validated data.
         """
         return Proxy.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         """
-        Update and return an existing `Snippet` instance, given the validated data.
+        Update and return an existing instance, given the validated data.
         """
         instance.address = validated_data.get('address', instance.address)
         instance.source  = validated_data.get('source', instance.source)

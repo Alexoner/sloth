@@ -2,6 +2,7 @@ import json
 import os
 import sys
 from subprocess import call
+import tempfile
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -10,6 +11,8 @@ from rest_framework.response import Response
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.http import Http404
+
+from .models import GitHubHookConf
 
 class GitHubHookView(APIView):
     """
@@ -48,10 +51,11 @@ class GitHubHookView(APIView):
             # return Response(status=status.HTTP_304_NOT_MODIFIED)
 
         url = self.parse_request(request)
-        paths = self.getMatchingPaths(url)
+        config = GitHubHookConf.objects.get(url=repoUrl)
+        paths = self.getMatchingPaths(config, url)
         for path in paths:
             self.git_fetch(path, url)
-            self.deploy(path)
+            self.deploy(path, config['install'])
 
         return Response('ok', status=status.HTTP_200_OK)
 
@@ -61,13 +65,12 @@ class GitHubHookView(APIView):
         data = json.loads(payload.decode())
         return data['repository']['url']
 
-    def getMatchingPaths(self, repoUrl):
+    def getMatchingPaths(self, config, repoUrl):
         res = []
-        config = self.getConfig()
-        for repository in config['repositories']:
-            if(repository['url'] == repoUrl):
-                res.append(repository['path'])
-        return res
+        if config:
+            if(config['url'] == repoUrl):
+                paths = config['paths'].split(',')
+        return paths
 
     @classmethod
     def git_fetch(cls, path, url):
@@ -83,17 +86,10 @@ class GitHubHookView(APIView):
     def git_pull(cls, path):
         call('cd %s && git pull' % (path), shell=True)
 
-    def deploy(self, path):
-        config = self.getConfig()
-        for repository in config['repositories']:
-            if(repository['path'] == path):
-                if 'deploy' in repository:
-                    branch = None
-                    if 'branch' in repository:
-                        branch = repository['branch']
-
-                    if branch is None:
-                        # if(not self.quiet):
-                            # print 'Executing deploy command'
-                        call(['cd "' + path + '" && ' +
-                              repository['deploy']], shell=True)
+    def deploy(self, path, install):
+        f = tempfile.NamedTemporaryFile(delete=False)
+        f.write(install)
+        f.close()
+        os.chmod(f.name, 0o755)
+        call(f.name, shell=True)
+        f.unlink(f.name)

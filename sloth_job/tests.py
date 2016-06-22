@@ -1,6 +1,7 @@
 from django.test import TestCase
 
 from .models import Proxy
+from .tasks.crawler import schedule_job
 
 # Create your tests here.
 
@@ -19,6 +20,11 @@ class TaskTestCase(TestCase):
         # # NOTE: call get() first to wait for complete
         # assert result.get()
         # assert result.successful()
+
+    def test_can_schedule_job(self):
+        result = schedule_job.delay('scrapyprj', 'dmoz', url='http://127.0.0.1:6800/')
+        assert result.successful()
+
 
     def test_foo(self):
         assert True

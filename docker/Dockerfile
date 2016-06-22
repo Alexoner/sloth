@@ -34,16 +34,18 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
         redis-server
 
 RUN easy_install pip==8.1.2 setuptools
-# install scrapyprj
-RUN mkdir $HOME/src/
-RUN git clone https://github.com/Alexoner/web-crawlers.git $HOME/src/scrapyprj && \
-    cd $HOME/src/scrapyprj && pip install -r requirements.txt && cd ..
-RUN git clone https://github.com/Alexoner/sloth.git $HOME/src/sloth && \
-    cd $HOME/src/sloth && pip install -r requirements.txt && cd ..
 
-RUN rm -rf /var/lib/apt/lists/*
 # create unprivileged user
 RUN adduser --disabled-password --gecos '' admin
+WORKDIR /home/admin
 
-WORKDIR $HOME/src/
+# install scrapyprj
+RUN su admin -c "git clone https://github.com/Alexoner/web-crawlers.git scrapyprj" && \
+    cd scrapyprj && pip install -r requirements.txt && cd ..
+RUN su admin -c "git clone https://github.com/Alexoner/sloth.git sloth" && \
+    cd sloth && pip install -r requirements.txt && cd ..
+
+RUN rm -rf /var/lib/apt/lists/*
+
 EXPOSE 8000 8000
+EXPOSE 6800 6800

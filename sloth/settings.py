@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework', # django restful framework
     'djcelery', # django-celery
     'sloth_job',
+    'sloth_hook',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -134,6 +135,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+# django-pipeline
+PIPELINE_COMPILERS = (
+    # 'react.utils.pipeline.JSXCompiler',  # for react
+)
 
 
 # Celery settings
