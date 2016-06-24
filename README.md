@@ -62,6 +62,8 @@ to expose the container's port 8000 on your localhosts port 8001
  iptables -t nat -A  DOCKER -p tcp --dport 8000 -j DNAT --to-destination 192.168.42.47:8000
 ```
 
+## start frontend
+see `client/README.md`
 
 ## data demonstration
 TODO

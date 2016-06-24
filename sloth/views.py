@@ -2,6 +2,7 @@ import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
@@ -24,6 +25,10 @@ class UserViewSet(viewsets.ModelViewSet):
     # serializer_class = UserSerializer
 
 ##########################################################
+
+@csrf_exempt
+def index(request):
+    return render(request, "index.html")
 
 class JSONResponse(HttpResponse):
     """

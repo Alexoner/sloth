@@ -13,3 +13,4 @@ wheel==0.29.0
 #git+https://github.com/constverum/ProxyBroker.git
 python-scrapyd-api==2.0.1
 PyReact==0.1.1
+django-webpack-loader

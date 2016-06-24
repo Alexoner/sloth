@@ -1,0 +1,179 @@
+
+> react-redux-universal-hot-example@0.9.0 dev /Users/Alex/Documents/mine/react-redux-universal-hot-example
+> concurrent --kill-others "npm run watch-client" "npm run start-dev" "npm run start-dev-api"
+
+[0] 
+[0] > react-redux-universal-hot-example@0.9.0 watch-client /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[0] > better-npm-run watch-client
+[0] 
+[2] 
+[2] > react-redux-universal-hot-example@0.9.0 start-dev-api /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[2] > better-npm-run start-dev-api
+[2] 
+[1] 
+[1] > react-redux-universal-hot-example@0.9.0 start-dev /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[1] > better-npm-run start-dev
+[1] 
+[0] running better-npm-run in /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[2] running better-npm-run in /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[1] running better-npm-run in /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[0] Executing script: watch-client
+[0] 
+[0] to be executed: node webpack/webpack-dev-server.js 
+[2] Executing script: start-dev-api
+[2] 
+[2] to be executed: node ./bin/api.js 
+[1] Executing script: start-dev
+[1] 
+[1] to be executed: node ./bin/server.js 
+[0] ==> 🚧  Webpack development server listening on port 3001
+[2] ----
+[2] ==> 🌎  API is running on port 3030
+[2] ==> 💻  Send requests to http://localhost:3030
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[0] Hash: [1m9ba411c8b44ef735a526[22m
+[0] Version: webpack [1m1.13.0[22m
+[0] Time: [1m13141[22mms
+[0]                                  [1mAsset[22m     [1mSize[22m  [1mChunks[22m  [1m[22m           [1mChunk Names[22m
+[0] [1m[32m926c93d201fe51c8f351e858468980c3.woff2[39m[22m  70.7 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mf4769f9bdb7466be65088239c12046d1.eot[39m[22m  20.1 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]  [1m[32mfa2772327f55d8198301fdb8bcfc8158.woff[39m[22m  23.4 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32me18bbf611f2a2e43afc071aa2f4e1512.ttf[39m[22m  45.4 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32m89889688147bd7575d6327160d64e760.svg[39m[22m   109 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32m404a525502f8e5ba7e93b9f02d9e83a9.eot[39m[22m  75.2 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0] [1m[32m448c34a56d699c29117adc64c43affeb.woff2[39m[22m    18 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]  [1m[32m891e3f340c1126b4c7c142e5f6e86816.woff[39m[22m  89.1 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mfb650aaf10736ffb9c4173079616bf01.ttf[39m[22m   151 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mbae4a87c1e5dff40baa3f49d52f5347a.svg[39m[22m   386 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mc29770d03d2e95e3ea5899d57c6cfeab.jpg[39m[22m  92.2 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]           [1m[32mmain-9ba411c8b44ef735a526.js[39m[22m  7.45 MB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+[0] webpack built 9ba411c8b44ef735a526 in 13141ms
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] helloworld
+[1] helloworld
+[1] helloworld
+[1] helloworld
+[1] helloworld
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[2] API ERROR:   [0m[97m[41mError[0m[90m:[0m[37m [0m[97mWidget load fails 33% of the time. You were unlucky.[0m
+[2] [0m
+[2] API ERROR:   [0m[97m[41mError[0m[90m:[0m[37m [0m[97mWidget load fails 33% of the time. You were unlucky.[0m
+[2] [0m
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  Alexoner's homepage is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[2] API ERROR:   [0m[97m[41mError[0m[90m:[0m[37m [0m[97mWidget load fails 33% of the time. You were unlucky.[0m
+[2] [0m
+[2] [31m[1m[piping][22m[39m File src/config.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File src/config.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File src/containers/About/About.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File src/containers/App/App.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File src/containers/Chat/Chat.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File src/containers/Home/Home.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File src/routes.js has changed, reloading.
+[0] webpack building...
+[2] ----
+[2] ==> 🌎  API is running on port 3030
+[2] ==> 💻  Send requests to http://localhost:3030
+[1] ----
+[1] ==> ✅  React Redux Example is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[0] webpack built db4307f3c5e6fc28407f in 4654ms
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] ----
+[1] ==> ✅  React Redux Example is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] [31m[1m[piping][22m[39m File webpack/webpack-isomorphic-tools.js has changed, reloading.
+[1] ----
+[1] ==> ✅  React Redux Example is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[2] API ERROR:   [0m[97m[41mError[0m[90m:[0m[37m [0m[97mWidget load fails 33% of the time. You were unlucky.[0m
+[2] [0m
+
+> react-redux-universal-hot-example@0.9.0 dev /Users/Alex/Documents/mine/react-redux-universal-hot-example
+> concurrent --kill-others "npm run watch-client" "npm run start-dev" "npm run start-dev-api"
+
+[0] 
+[0] > react-redux-universal-hot-example@0.9.0 watch-client /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[0] > better-npm-run watch-client
+[0] 
+[1] 
+[1] > react-redux-universal-hot-example@0.9.0 start-dev /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[1] > better-npm-run start-dev
+[1] 
+[2] 
+[2] > react-redux-universal-hot-example@0.9.0 start-dev-api /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[2] > better-npm-run start-dev-api
+[2] 
+[0] running better-npm-run in /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[1] running better-npm-run in /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[0] Executing script: watch-client
+[0] 
+[0] to be executed: node webpack/webpack-dev-server.js 
+[2] running better-npm-run in /Users/Alex/Documents/mine/react-redux-universal-hot-example
+[1] Executing script: start-dev
+[1] 
+[1] to be executed: node ./bin/server.js 
+[2] Executing script: start-dev-api
+[2] 
+[2] to be executed: node ./bin/api.js 
+[0] ==> 🚧  Webpack development server listening on port 3001
+[2] ----
+[2] ==> 🌎  API is running on port 3030
+[2] ==> 💻  Send requests to http://localhost:3030
+[1] [webpack-isomorphic-tools] (waiting for the first Webpack build to finish)
+[1] [webpack-isomorphic-tools] (waiting for the first Webpack build to finish)
+[1] [webpack-isomorphic-tools] (waiting for the first Webpack build to finish)
+[1] [webpack-isomorphic-tools] (waiting for the first Webpack build to finish)
+[1] [webpack-isomorphic-tools] (waiting for the first Webpack build to finish)
+[0] Hash: [1ma8096d9b407208a1a7d6[22m
+[0] Version: webpack [1m1.13.0[22m
+[0] Time: [1m12923[22mms
+[0]                                  [1mAsset[22m     [1mSize[22m  [1mChunks[22m  [1m[22m           [1mChunk Names[22m
+[0] [1m[32m926c93d201fe51c8f351e858468980c3.woff2[39m[22m  70.7 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mf4769f9bdb7466be65088239c12046d1.eot[39m[22m  20.1 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]  [1m[32mfa2772327f55d8198301fdb8bcfc8158.woff[39m[22m  23.4 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32me18bbf611f2a2e43afc071aa2f4e1512.ttf[39m[22m  45.4 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32m89889688147bd7575d6327160d64e760.svg[39m[22m   109 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32m404a525502f8e5ba7e93b9f02d9e83a9.eot[39m[22m  75.2 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0] [1m[32m448c34a56d699c29117adc64c43affeb.woff2[39m[22m    18 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]  [1m[32m891e3f340c1126b4c7c142e5f6e86816.woff[39m[22m  89.1 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mfb650aaf10736ffb9c4173079616bf01.ttf[39m[22m   151 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mbae4a87c1e5dff40baa3f49d52f5347a.svg[39m[22m   386 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]   [1m[32mc29770d03d2e95e3ea5899d57c6cfeab.jpg[39m[22m  92.2 kB        [1m[22m  [1m[32m[emitted][39m[22m  
+[0]           [1m[32mmain-a8096d9b407208a1a7d6.js[39m[22m  7.47 MB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+[0] webpack built a8096d9b407208a1a7d6 in 12923ms
+[1] ----
+[1] ==> ✅  React Redux Example is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File webpack/webpack-isomorphic-tools.js has changed, reloading.
+[1] ----
+[1] ==> ✅  React Redux Example is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.
+[1] [31m[1m[piping][22m[39m File src/server.js has changed, reloading.
+[1] [31m[1m[piping][22m[39m File webpack/webpack-isomorphic-tools.js has changed, reloading.
+[1] ----
+[1] ==> ✅  React Redux Example is running, talking to API server on 3030.
+[1] ==> 💻  Open http://localhost:3000 in a browser to view the app.

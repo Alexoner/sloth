@@ -28,9 +28,11 @@ router.register(r'users', UserViewSet)
 # Additionally, we include login URLs for the browsable API.
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^$', views.index, name='index'),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^jsreverse/$', 'django_js_reverse.views.urls_js', name='js_reverse'),
     url(r'^sloth/$', views.snippet_list),
     url(r'^sloth/(?P<pk>[0-9]+)/$', views.snippet_detail),
     url(r'^job/', include('sloth_job.urls')),
